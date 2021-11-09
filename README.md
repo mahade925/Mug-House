@@ -1,7 +1,7 @@
 <h1>Paint Pottery</h1>
 <a href="#">Live Link</a>
 <hr>
-<h3>Paint Pottery is pottery related website you can purchase awesome painting pottery from us.</h3>
+<p>Paint Pottery is pottery related website you can purchase awesome painting pottery from us.</p>
 <ul>
     <li>point 1</li>
     <li>point 2</li>
