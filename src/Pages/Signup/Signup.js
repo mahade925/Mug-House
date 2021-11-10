@@ -4,9 +4,12 @@ import useAuth from '../../Hooks/useAuth';
 
 const Signup = () => {
     const [loginData, setLoginData] = useState({});
+    const [name, setName] = useState('');
     const { user, signupUser, isLoading, authError } = useAuth();
+
     const history = useHistory();
     const location = useLocation();
+
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -15,7 +18,7 @@ const Signup = () => {
         setLoginData(newLoginData);
     }
     const handleSignup = e => {
-        signupUser(loginData.email, loginData.password, location, history);
+        signupUser(loginData.name, loginData.email, loginData.password, location, history);
         if(user.email) {
             alert('Succeffuly Signup');
         }
