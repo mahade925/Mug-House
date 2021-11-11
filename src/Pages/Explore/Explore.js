@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Explore.css';
 
 const Explore = () => {
@@ -20,7 +21,9 @@ const Explore = () => {
                                 <h5 class="card-title">{product.name}</h5>
                                 <p class="card-text">{product.desc}</p>
                                 <h5>{product.price}</h5>
-                                <button className="btn btn-dark">Buy Now</button>
+                                <NavLink to={`/purchase/${product._id}`}>
+                                    <button className="btn btn-dark">Buy Now</button>
+                                </NavLink>
                             </div>
                         </div>
                     </div>)

@@ -30,9 +30,11 @@ const Navigation = () => {
                         {
                             user?.email ?
                                 <>
-                                    <li class="nav-item">
-                                        <a class="nav-link fs-5" href="#">Dashboard</a>
-                                    </li>
+                                    <NavLink to="/dashboard" style={{ textDecoration: 'none' }}>
+                                        <li class="nav-item">
+                                            <a class="nav-link fs-5" href="#">Dashboard</a>
+                                        </li>
+                                    </NavLink>
                                     <li class="nav-item">
                                         <a class="nav-link fs-5" href="#">User : {user?.email}</a>
                                     </li>

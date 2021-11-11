@@ -1,105 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Reviews.css';
+import PrettyRating from "pretty-rating-react";
+import {
+    faHeart,
+    faStar,
+    faHeartBroken,
+    faStarHalfAlt,
+} from "@fortawesome/free-solid-svg-icons";
+
+import {
+    faHeart as farHeart,
+    faStar as farStar,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, []);
+
+    const icons = {
+        star: {
+            complete: faStar,
+            half: faStarHalfAlt,
+            empty: farStar,
+        },
+        heart: {
+            complete: faHeart,
+            half: faHeartBroken,
+            empty: farHeart,
+        },
+    };
+
+    const colors = {
+        star: ['#d9ad26', '#d9ad26', '#434b4d'],
+        heart: ['#9b111e', '#a83f39'],
+    };
+
+    console.log(reviews);
     return (
         <section id="testimonials">
             <div className="testimonial-heading">
                 <h1>Reviews</h1>
             </div>
             <div className="testimonial-box-container">
-                <div className="testimonial-box container">
-                    <div className="box-top">
-                        <div className="profile">
-                            <div className="profile-img">
-                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1hbnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
+                {
+                    reviews.map(review => <div className="testimonial-box container">
+                        <div className="box-top">
+                            <div className="profile">
+                                <div className="profile-img">
+                                    <img src={review.img} alt="" />
+                                </div>
+                                <div className="name-user">
+                                    <strong>{review.name}</strong>
+                                    <span>{review.email}</span>
+                                </div>
                             </div>
-                            <div className="name-user">
-                                <strong>Mahade Hasan</strong>
-                                <span>mahade@gmail.com</span>
-                            </div>
-                        </div>
-                        <div className="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                    <div className="client-comment">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo quasi repudiandae quaerat, obcaecati exercitationem architecto ipsam aut consequatur ut dolor!</p>
-                    </div>
-                </div>
-                <div className="testimonial-box container">
-                    <div className="box-top">
-                        <div className="profile">
-                            <div className="profile-img">
-                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1hbnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
-                            </div>
-                            <div className="name-user">
-                                <strong>Mahade Hasan</strong>
-                                <span>mahade@gmail.com</span>
+                            <div className="reviews">
+                                <div>
+                                    <div>
+                                        <PrettyRating value={review.rating} icons={icons.star} colors={colors.star} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <div className="client-comment">
+                            <p>{review.message}</p>
                         </div>
-                    </div>
-                    <div className="client-comment">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo quasi repudiandae quaerat, obcaecati exercitationem architecto ipsam aut consequatur ut dolor!</p>
-                    </div>
-                </div>
-                <div className="testimonial-box container">
-                    <div className="box-top">
-                        <div className="profile">
-                            <div className="profile-img">
-                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1hbnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
-                            </div>
-                            <div className="name-user">
-                                <strong>Mahade Hasan</strong>
-                                <span>mahade@gmail.com</span>
-                            </div>
-                        </div>
-                        <div className="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                    <div className="client-comment">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo quasi repudiandae quaerat, obcaecati exercitationem architecto ipsam aut consequatur ut dolor!</p>
-                    </div>
-                </div>
-                <div className="testimonial-box container">
-                    <div className="box-top">
-                        <div className="profile">
-                            <div className="profile-img">
-                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1hbnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
-                            </div>
-                            <div className="name-user">
-                                <strong>Mahade Hasan</strong>
-                                <span>mahade@gmail.com</span>
-                            </div>
-                        </div>
-                        <div className="reviews">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                    <div className="client-comment">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo quasi repudiandae quaerat, obcaecati exercitationem architecto ipsam aut consequatur ut dolor!</p>
-                    </div>
-                </div>
+                    </div>)
+                }
             </div>
         </section>
     );
