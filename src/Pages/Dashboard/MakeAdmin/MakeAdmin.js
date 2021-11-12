@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './MakeAdmin.css';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div className="container w-50">
+        <div className="make-admin-container container w-50">
             <h1>Make Admin</h1>
             <div class="form-floating mb-3 mt-5">
                 <input type="text" class="form-control" onBlur={handleEmail} name="email" id="floatingPassword" placeholder="Password" />

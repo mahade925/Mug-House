@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddProduct.css'
 
 const AddProduct = () => {
     const [product, setProduct] = useState({});
@@ -29,7 +30,7 @@ const AddProduct = () => {
         e.preventDefault();
     }
     return (
-        <div className="container w-50">
+        <div className="product-container container w-50">
             <h1>Add Product</h1>
             <div className="container">
                 <div class="form-floating mb-3 mt-5">

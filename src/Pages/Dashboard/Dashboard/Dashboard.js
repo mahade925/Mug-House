@@ -47,7 +47,7 @@ function Dashboard(props) {
             <Divider />
             <Link to="/"><h3>Home</h3></Link>
             {console.log(admin)}
-            
+
             {
                 admin.admin ? <div>
                     <Link to={`${url}/manageAllOrders`}><h5>Manage all orders</h5></Link>
@@ -85,9 +85,9 @@ function Dashboard(props) {
                         onClick={handleDrawerToggle}
                         sx={{ mr: 2, display: { sm: 'none' } }}
                     >
-                        {/* <MenuIcon /> */}
+                        <i class="fas fa-bars"></i>
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography variant="h6" onClick={handleDrawerToggle} noWrap component="div">
                         Dashboard
                     </Typography>
                 </Toolbar>
@@ -170,4 +170,5 @@ Dashboard.propTypes = {
 };
 
 export default Dashboard;
+
 
