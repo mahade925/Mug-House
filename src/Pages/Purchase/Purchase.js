@@ -5,7 +5,7 @@ import useAuth from '../../Hooks/useAuth';
 const Purchase = () => {
     const [product, setProduct] = useState([])
     const { user } = useAuth();
-    const initialInfo = { name: user.displayName, email: user.email, phone: '' }
+    const initialInfo = { name: user.displayName, email: user.email, status: 'pending', phone: '' }
     const [orderInfo, setOrderInfo] = useState(initialInfo);
     const { productId } = useParams();
 

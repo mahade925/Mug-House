@@ -24,6 +24,11 @@ import Payment from '../Payment/Payment';
 import MyOrders from '../MyOrders/MyOrders';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import Review from '../Review/Review';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProduct from '../AddProduct/AddProduct';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import AdminRoute from '../../AdminRoute/AdminRoute';
 
 const drawerWidth = 200;
 
@@ -31,7 +36,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, logout } = useAuth();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -40,10 +45,23 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link to={`${url}/pay`}><h3>pay</h3></Link>
-            <Link to={`${url}/myOrders`}><h3>My orders</h3></Link>
-            <Link to={`${url}/review`}><h3>Review</h3></Link>
-            <Link to={`${url}/logout`}><h3>Logout</h3></Link>
+            <Link to="/"><h3>Home</h3></Link>
+            {console.log(admin)}
+            
+            {
+                admin.admin ? <div>
+                    <Link to={`${url}/manageAllOrders`}><h5>Manage all orders</h5></Link>
+                    <Link to={`${url}/addProduct`}><h5>Add a product</h5></Link>
+                    <Link to={`${url}/makeAdmin`}><h5>Make admin</h5></Link>
+                    <Link to={`${url}/manageProducts`}><h5>Manage Products</h5></Link>
+                    <Link onClick={logout ? logout : ''}><h3>Logout</h3></Link>
+                </div> : <div>
+                    <Link to={`${url}/pay`}><h3>pay</h3></Link>
+                    <Link to={`${url}/myOrders`}><h3>My orders</h3></Link>
+                    <Link to={`${url}/review`}><h3>Review</h3></Link>
+                    <Link onClick={logout}><h3>Logout</h3></Link>
+                </div>
+            }
         </div>
     );
 
@@ -124,6 +142,18 @@ function Dashboard(props) {
                     <Route path={`${path}/review`}>
                         <Review></Review>
                     </Route>
+                    <AdminRoute path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageAllOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
                 </Switch>
 
             </Box>

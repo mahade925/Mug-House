@@ -42,6 +42,7 @@ const MyOrders = () => {
                             <h3>Email : {myOrder.email}</h3>
                             <h3>Phone : {myOrder.phone}</h3>
                             <h3>address : {myOrder.address}</h3>
+                            <h3>Status : {myOrder?.status}</h3>
                             <h3>Message : <p>{myOrder.message}</p></h3>
                             <button className="btn btn-outline-danger" onClick={() => handleDeleteOrders(myOrder._id)}>Cancel</button>
                         </div>
