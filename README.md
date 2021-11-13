@@ -3,9 +3,9 @@
 <hr>
 <p>Paint Pottery is pottery related website you can purchase awesome painting pottery from us.</p>
 <ul>
-    <li>point 1</li>
-    <li>point 2</li>
-    <li>point 3</li>
-    <li>point 4</li>
-    <li>point 5</li>
+    <li>Add reviews</li>
+    <li>Add product</li>
+    <li>Delete product</li>
+    <li>cancel order</li>
+    <li>add order</li>
 </ul>

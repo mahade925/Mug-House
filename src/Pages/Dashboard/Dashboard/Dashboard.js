@@ -36,7 +36,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin, logout } = useAuth();
+    const { admin, user, logout } = useAuth();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -54,13 +54,14 @@ function Dashboard(props) {
                     <Link to={`${url}/addProduct`}><h5>Add a product</h5></Link>
                     <Link to={`${url}/makeAdmin`}><h5>Make admin</h5></Link>
                     <Link to={`${url}/manageProducts`}><h5>Manage Products</h5></Link>
-                    <Link onClick={logout ? logout : ''}><h3>Logout</h3></Link>
                 </div> : <div>
                     <Link to={`${url}/pay`}><h3>pay</h3></Link>
                     <Link to={`${url}/myOrders`}><h3>My orders</h3></Link>
                     <Link to={`${url}/review`}><h3>Review</h3></Link>
-                    <Link onClick={logout}><h3>Logout</h3></Link>
                 </div>
+            }
+            {
+                user?.email ? <button onClick={logout} className="btn btn-danger">Logout</button> : <span>Not Logged in</span>
             }
         </div>
     );
@@ -68,13 +69,14 @@ function Dashboard(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex'}}>
             <CssBaseline />
             <AppBar
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
+                    background: 'black'
                 }}
             >
                 <Toolbar>

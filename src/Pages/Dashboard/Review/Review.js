@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Review = () => {
     const [reviewInfo, setReviewInfo] = useState({});
-    
+
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -10,6 +10,12 @@ const Review = () => {
         newReviewInfo[field] = value;
         setReviewInfo(newReviewInfo);
     };
+
+    const handleRatingChange = e => {
+        let v = parseInt(e.target.value);
+        if (v < 0) e.target.value = 0;
+        if (v > 5) e.target.value = 5;
+    }
 
     const handleSubmit = e => {
         // send to the server
@@ -47,7 +53,7 @@ const Review = () => {
                         <label for="floatingInput">Your image link</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" onBlur={handleOnChange} name="rating" id="floatingInput" placeholder="img link" />
+                        <input type="number" class="form-control" onBlur={handleOnChange} onChange={handleRatingChange} name="rating" id="floatingInput" placeholder="img link" />
                         <label for="floatingInput">Rating</label>
                     </div>
                     <div class="form-floating">

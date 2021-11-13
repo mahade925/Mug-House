@@ -21,13 +21,13 @@ const Footer = () => {
             </div>
             </div>
             <div class ="middle box">
-            <div class ="topic">Our Services</div>
-            <div><a href="#">Web Design, Development</a></div>
-            <div><a href="#">Web UX Design, Reasearch</a></div>
-            <div><a href="#">Web User Interface Design</a></div>
-            <div><a href="#">Theme Development, Design</a></div>
-            <div><a href="#">Mobile Application Design</a></div>
-            <div><a href="#">Wire raming & Prototyping</a></div>
+            <div class ="topic">Our Products</div>
+            <div><a href="#">Pottery Vasket</a></div>
+            <div><a href="#">Pottery Mug</a></div>
+            <div><a href="#">Pottery bowl</a></div>
+            <div><a href="#">Pottery cup</a></div>
+            <div><a href="#">Pottery toy</a></div>
+            <div><a href="#">Designed Pottery</a></div>
             </div>
             <div class ="right box">
             <div class ="topic">Subscribe us</div>

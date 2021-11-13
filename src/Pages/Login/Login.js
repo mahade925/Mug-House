@@ -19,7 +19,6 @@ const Login = () => {
     }
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, history);
-        console.log(user);
         e.preventDefault();
     }
     return (
@@ -31,6 +30,7 @@ const Login = () => {
                 <button className="submit" align="center">Log in</button>
                 <NavLink to="/signup">
                     <p className="forgot" align="center"><a href="#">Don't have any account ?</a></p>
+                    <h5 className="text-danger">{authError && authError}</h5>
                 </NavLink>
             </form>
         </div>
