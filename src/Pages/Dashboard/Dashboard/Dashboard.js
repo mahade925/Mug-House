@@ -29,6 +29,7 @@ import AddProduct from '../AddProduct/AddProduct';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import AdminRoute from '../../AdminRoute/AdminRoute';
+import './Dashboard.css'
 
 const drawerWidth = 200;
 
@@ -49,12 +50,12 @@ function Dashboard(props) {
             {console.log(admin)}
 
             {
-                admin.admin ? <div>
+                admin.admin ? <div className="dashboard-nav-link">
                     <Link to={`${url}/manageAllOrders`}><h5>Manage all orders</h5></Link>
                     <Link to={`${url}/addProduct`}><h5>Add a product</h5></Link>
                     <Link to={`${url}/makeAdmin`}><h5>Make admin</h5></Link>
                     <Link to={`${url}/manageProducts`}><h5>Manage Products</h5></Link>
-                </div> : <div>
+                </div> : <div className="dashboard-nav-link">
                     <Link to={`${url}/pay`}><h3>pay</h3></Link>
                     <Link to={`${url}/myOrders`}><h3>My orders</h3></Link>
                     <Link to={`${url}/review`}><h3>Review</h3></Link>

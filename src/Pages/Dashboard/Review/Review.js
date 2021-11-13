@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import useAuth from '../../../Hooks/useAuth';
 
 const Review = () => {
     const [reviewInfo, setReviewInfo] = useState({});
+    const {user} = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -41,11 +43,11 @@ const Review = () => {
             <div className="form">
                 <div>
                     <div class="form-floating mb-3 mt-5">
-                        <input type="text" class="form-control" onBlur={handleOnChange} name="name" id="floatingInput" placeholder="Your name" />
+                        <input type="text" class="form-control" onBlur={handleOnChange} defaultValue={user?.displayName} name="name" id="floatingInput" placeholder="Your name" />
                         <label for="floatingInput">Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" onBlur={handleOnChange} name="email" id="floatingPassword" placeholder="Password" />
+                        <input type="text" class="form-control" onBlur={handleOnChange} name="email" defaultValue={user?.email} id="floatingPassword" placeholder="Password" />
                         <label for="floatingPassword">Email</label>
                     </div>
                     <div class="form-floating mb-3">

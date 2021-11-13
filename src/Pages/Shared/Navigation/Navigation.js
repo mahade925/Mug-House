@@ -9,7 +9,7 @@ const Navigation = () => {
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <NavLink to="/" style={{ textDecoration: 'none' }}>
-                    <h1 class="navbar-brand fs-2">Paint Pottery</h1>
+                    <h1 class="navbar-brand fs-2">Mug House</h1>
                 </NavLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
