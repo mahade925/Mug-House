@@ -18,7 +18,7 @@ const Purchase = () => {
     };
     const handleOrder = e => {
         // send to the server
-        fetch('http://localhost:5000/orders', {
+        fetch('https://damp-citadel-69282.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const Purchase = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://damp-citadel-69282.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [product])

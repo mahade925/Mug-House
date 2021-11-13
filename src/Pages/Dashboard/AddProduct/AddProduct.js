@@ -14,7 +14,7 @@ const AddProduct = () => {
 
     const handleSubmit = e => {
         // send to the server
-        fetch('http://localhost:5000/products', {
+        fetch('https://damp-citadel-69282.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
